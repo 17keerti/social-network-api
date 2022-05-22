@@ -11,8 +11,8 @@ module.exports = {
     Thought.findOne({ _id: req.params.id })
       .select("-__v")
       .then((thought) =>
-        !course
-          ? res.status(404).json({ message: "No course with that ID" })
+        !thought
+          ? res.status(404).json({ message: "No thought with that ID" })
           : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
@@ -44,8 +44,8 @@ module.exports = {
       { runValidators: true, new: true }
     )
       .then((thought) =>
-        !course
-          ? res.status(404).json({ message: "No course with this id!" })
+        !thought
+          ? res.status(404).json({ message: "No thought with this id!" })
           : res.json("Thought Updated")
       )
       .catch((err) => res.status(500).json(err));
@@ -53,8 +53,8 @@ module.exports = {
 
   deleteThought(req, res) {
     Thought.findOneAndRemove({ _id: req.params.id }).then((thought) =>
-      !course
-        ? res.status(404).json({ message: "No course with that ID" })
+      !thought
+        ? res.status(404).json({ message: "No thought with that ID" })
         : res.json({ message: "Thought deleted!" })
     );
   },
