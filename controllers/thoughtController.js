@@ -65,8 +65,8 @@ module.exports = {
       { $push: { reactions: req.body } },
       { runValidators: true, new: true }
     )
-      .then((thought) =>
-        !thought
+      .then((reaction) =>
+        !reaction
           ? res.status(404).json({ message: "No thought with this id!" })
           : res.json("reaction added")
       )
@@ -75,12 +75,12 @@ module.exports = {
 
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.ThoughtId },
-      { $pull: { reactions: { $in: req.params.reactionId } } },
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { _id: req.params.reactionId } } },
       { runValidators: true, new: true }
     )
-      .then((user) =>
-        !user
+      .then((reaction) =>
+        !reaction
           ? res
               .status(404)
               .json({ message: "No reaction found with that ID :(" })
