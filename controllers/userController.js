@@ -14,7 +14,7 @@ module.exports = {
   },
 
   getSingleUser(req, res) {
-    User.findOne({ _id: req.params.id }) // how to populate thoughts and friends
+    User.findOne({ _id: req.params.id })
       .select("-__v")
       .populate({ path: "thoughts", model: Thought })
       .populate({ path: "friends", model: User })
