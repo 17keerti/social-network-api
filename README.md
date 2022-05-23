@@ -14,13 +14,6 @@ This is an API for a social network web application where users can share their 
 
 ## Video
 
-
-
-https://user-images.githubusercontent.com/102001384/169752836-5cde8e4f-7aac-4e93-8c17-96cad45d5b30.mp4
-
-
-
-
 ## Installation
 
 Clone the repo down to your local so you have the project on your local.<br>
